@@ -1,0 +1,9 @@
+# ignore all .DS_Store files in all folders
+**/**.DS_Store
+
+# ignore the data folder
+data/**
+data
+
+# ignore all zip files in all folders
+**/**.zip
