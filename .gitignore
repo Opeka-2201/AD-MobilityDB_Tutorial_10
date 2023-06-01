@@ -3,7 +3,6 @@
 
 # ignore the data folder
 data/**
-data
 
 # ignore all zip files in all folders
 **/**.zip
