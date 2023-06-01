@@ -1,6 +1,11 @@
 -- CREATE THE TABLES
-
+DROP TABLE IF EXISTS stop_times;
+DROP TABLE IF EXISTS trips;
+DROP TABLE IF EXISTS stops;
+DROP TABLE IF EXISTS routes;
+DROP TABLE IF EXISTS calendar;
 DROP TABLE IF EXISTS agency;
+
 CREATE TABLE agency(
     agency_id TEXT PRIMARY KEY,
     agency_name TEXT NOT NULL,
@@ -10,21 +15,17 @@ CREATE TABLE agency(
     agency_phone TEXT
 );
 
-DROP TABLE IF EXISTS calendar;
 CREATE TABLE calendar(
     service_id TEXT PRIMARY KEY,
-    monday INTEGER NOT NULL,
-    tuesday INTEGER NOT NULL,
-    wednesday INTEGER NOT NULL,
-    thursday INTEGER NOT NULL,
-    friday INTEGER NOT NULL,
-    saturday INTEGER NOT NULL,
-    sunday INTEGER NOT NULL,
-    start_date date,
-    end_date date
+    monday date,
+    tuesday date,
+    wednesday date,
+    thursday date,
+    friday date,
+    saturday date,
+    sunday date
 );
 
-DROP TABLE IF EXISTS routes;
 CREATE TABLE routes(
     route_id TEXT PRIMARY KEY,
     agency_id TEXT NOT NULL,
@@ -35,7 +36,6 @@ CREATE TABLE routes(
     route_url TEXT
 );
 
-DROP TABLE IF EXISTS stops;
 CREATE TABLE stops(
     stop_id TEXT PRIMARY KEY,
     stop_code TEXT,
@@ -48,7 +48,6 @@ CREATE TABLE stops(
     location_type INTEGER
 );
 
-DROP TABLE IF EXISTS trips;
 CREATE TABLE trips(
     route_id TEXT NOT NULL,
     service_id TEXT NOT NULL,
@@ -57,7 +56,6 @@ CREATE TABLE trips(
     direction_id INTEGER
 );
 
-DROP TABLE IF EXISTS stop_times;
 CREATE TABLE stop_times(
     trip_id TEXT NOT NULL REFERENCES trips(trip_id),
     arrival_time timestamp NOT NULL,
