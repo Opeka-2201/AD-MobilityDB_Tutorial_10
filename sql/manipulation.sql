@@ -1,6 +1,6 @@
 -- MANIPULATE TO OBTAIN THE DESIRED DATA (datetimes correctly for trajectories)
 
-DROP TABLE IF EXISTS calendar_trips;
+DROP TABLE IF EXISTS calendar_trips CASCADE;
 CREATE TABLE calendar_trips AS
 SELECT
     calendar.service_id,
